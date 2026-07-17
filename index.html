@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Acesse nossos grupos de ofertas exclusivos e economize todos os dias com os melhores achados da internet." />
+  <title>Grupos de Ofertas - Só%Hoje</title>
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --brand-color: #6366f1; /* Indigo-500 da marca Só%Hoje */
+      --radius: 28px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(120% 120% at 50% 10%, #ffffff 40%, #eef2ff 100%); /* Fundo adaptado para Indigo */
+      color: var(--gray-900);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.5rem 1rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 485px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Profile Header */
+    .profile-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      background-color: var(--brand-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .profile-title {
+      font-size: 24px;
+      font-weight: 850;
+      color: var(--gray-900);
+      letter-spacing: -0.6px;
+      margin-bottom: 6px;
+    }
+    
+    .profile-title span {
+      color: var(--brand-color);
+    }
+
+    .profile-tagline {
+      font-size: 14.5px;
+      color: var(--gray-500);
+      line-height: 1.5;
+      max-width: 380px;
+      margin: 0 auto 1.25rem;
+      font-weight: 500;
+    }
+
+    /* Pulsing Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--gray-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--brand-color);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(99, 102, 241, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+    }
+
+    /* Cards List */
+    .cards-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .category-card {
+      width: 100%;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.01);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand-color);
+      box-shadow: 0 20px 38px rgba(99, 102, 241, 0.08), 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .category-card:active {
+      transform: translateY(-1px);
+    }
+
+    .card-img-wrapper {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px; /* Placeholder para emoji se não tiver imagem */
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .category-card:hover .card-img {
+      transform: scale(1.08);
+    }
+
+    .card-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.45;
+      font-weight: 500;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-action {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .category-card:hover .card-action {
+      background: var(--brand-color);
+      border-color: var(--brand-color);
+      color: var(--white);
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+    .category-card:hover .card-action svg {
+      transform: translateX(1px);
+    }
+
+    .card-action svg {
+      transition: transform 0.2s ease;
+    }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-top: 2rem;
+      max-width: 400px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.75rem 1rem;
+      }
+      .profile-title {
+        font-size: 22px;
+      }
+      .profile-tagline {
+        font-size: 13.5px;
+      }
+      .category-card {
+        padding: 12px;
+        gap: 12px;
+        border-radius: 24px;
+      }
+      .card-img-wrapper {
+        width: 68px;
+        height: 68px;
+        border-radius: 18px;
+      }
+      .card-title {
+        font-size: 15px;
+      }
+      .card-desc {
+        font-size: 12px;
+      }
+      .card-action {
+        width: 34px;
+        height: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main-container">
+
+    <!-- PROFILE HEADER -->
+    <header class="profile-header">
+      <div class="avatar-wrapper">
+        <img class="avatar-img" src="./Principal.png" alt="Só%Hoje" />
+      </div>
+      <h1 class="profile-title"><span>Só%</span>Hoje Ofertas</h1>
+      <p class="profile-tagline">
+        Economize de verdade com os melhores achados da internet! Escolha uma categoria abaixo e entre grátis no grupo oficial.
+      </p>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Grupos Atualizados Hoje</span>
+      </div>
+    </header>
+
+    <!-- CARDS LIST -->
+    <main class="cards-list">
+
+      <!-- CATEGORIA 1: MAMÃES E BEBÊS -->
+      <a href="https://chat.whatsapp.com/LHOei2GLQiwJtvlgxdCc8q" class="category-card" target="_blank" rel="noopener noreferrer">
+        <div class="card-img-wrapper">
+          <img class="card-img" src="./Mamaes e Bebes.png" alt="Mamães e Bebês" loading="lazy" />
+        </div>
+        <div class="card-info">
+          <h2 class="card-title">Mamães e Bebês</h2>
+          <p class="card-desc">Fraldas, roupinhas, carrinhos e acessórios de bebê.</p>
+        </div>
+        <div class="card-action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- CATEGORIA 2: BELEZA E MAQUIAGEM -->
+      <a href="https://chat.whatsapp.com/DpFGiJ1F5705pDs1bpjku8" class="category-card" target="_blank" rel="noopener noreferrer">
+        <div class="card-img-wrapper">
+          <img class="card-img" src="./Beleza e Maquiagem.png" alt="Beleza e Maquiagem" loading="lazy" />
+        </div>
+        <div class="card-info">
+          <h2 class="card-title">Beleza e Maquiagem</h2>
+          <p class="card-desc">Maquiagens, perfumes e cuidados com a pele em promoção.</p>
+        </div>
+        <div class="card-action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- CATEGORIA 3: CASA E COZINHA -->
+      <a href="https://chat.whatsapp.com/KEv9iYP253t8UzdjScD0Kj" class="category-card" target="_blank" rel="noopener noreferrer">
+        <div class="card-img-wrapper">
+          <img class="card-img" src="./Casa e Cozinha.png" alt="Casa e Cozinha" loading="lazy" />
+        </div>
+        <div class="card-info">
+          <h2 class="card-title">Casa e Cozinha</h2>
+          <p class="card-desc">Eletroportáteis, panelas e utilidades domésticas.</p>
+        </div>
+        <div class="card-action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- CATEGORIA 4: ELETRÔNICOS -->
+      <a href="https://chat.whatsapp.com/LhPUf2lkTYo99MJQbhxzDL" class="category-card" target="_blank" rel="noopener noreferrer">
+        <div class="card-img-wrapper">
+          <img class="card-img" src="./Eletronicos.png" alt="Eletrônicos" loading="lazy" />
+        </div>
+        <div class="card-info">
+          <h2 class="card-title">Eletrônicos & Tecnologia</h2>
+          <p class="card-desc">Smartphones, fones, TVs e gadgets com desconto.</p>
+        </div>
+        <div class="card-action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- CATEGORIA 5: MUNDO PET -->
+      <a href="https://chat.whatsapp.com/J7zlBvwpMKv2GBwXdoefwo" class="category-card" target="_blank" rel="noopener noreferrer">
+        <div class="card-img-wrapper">
+          <img class="card-img" src="./Mundo Pet.png" alt="Mundo Pet" loading="lazy" />
+        </div>
+        <div class="card-info">
+          <h2 class="card-title">Mundo Pet</h2>
+          <p class="card-desc">Ração, tapetes higiênicos e acessórios para seu pet.</p>
+        </div>
+        <div class="card-action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+    </main>
+
+    <!-- FOOTER LEGAL -->
+    <footer class="footer">
+      <div>© 2026 Só%Hoje. Todos os direitos reservados.</div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
